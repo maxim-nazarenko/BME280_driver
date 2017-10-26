@@ -398,6 +398,7 @@ int8_t bme280_init(struct bme280_dev *dev)
 				rslt = bme280_soft_reset(dev);
 				if (rslt == BME280_OK) {
 					/* Read the calibration data */
+					dev->delay_ms(80);
 					rslt = get_calib_data(dev);
 				}
 				break;
